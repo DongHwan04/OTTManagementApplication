@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="main_dark_gray">#FF222222</color>
+    
+    <color name="Netflix_theme">#FFD33E3E</color>
+    <color name="Disney_plus_theme">#FF4CC8B0</color>
+    <color name="coupang_play_theme">#FF5195EF</color>
+    <color name="Tving_theme">#FFF13F42</color>
+    <color name="Laftel_theme">#FF9768EA</color>
+    <color name="Wave_theme">#FF2561E5</color>
+    <color name="Watcha_theme">#FFDF416B</color>
+    <color name="melon_theme">#FF57D447</color>
+    <color name="genie_theme">#FFB8E0FF</color>
+    <color name="Flo_theme">#FF4948EB</color>
+    <color name="youtube_music_theme">#FFD46B6B</color>
+    <color name="spotify_theme">#FF4A9540</color>
+    
+    <color name="price_purple">#FFBB79D9</color>
+    <color name="price_orange">#FFC99889</color>
+    
+    <color name="efficient_green">#FF38DA50</color>
+    <color name="efficient_blue">#FF81B4BF</color>
+    
+    <color name="netflix_gradient_left">#FFE83131</color>
+    <color name="netflix_gradient_right">#FF821B1B</color>
+    <color name="disney_gradient_left">#FF379381</color>
+    <color name="disney_gradient_right">#FF1C3063</color>
+    <color name="youtube_music_gradient_left">#FFE83131</color>
+    <color name="youtube_music_gradient_right">#FFC29292</color>
+    <color name="spotify_gradient_left">#FF35FF4C</color>
+    <color name="spotify_gradient_right">#FF3C513D</color>
+    <color name="wave_gradient_left">#FF2072FF</color>
+    <color name="wave_gradient_right">#FFAEDFFF</color>
+    <color name="laftel_gradient_left">#FFA05DC6</color>
+    <color name="leafter_gradient_right">#FFA098C7</color>
+    <color name="Tving_gradient_left">#FFE92B41</color>
+    <color name="Tving_gradient_right">#FF88DDFF</color>
+    <color name="coupang_play_gradient_left">#FF54D7F1</color>
+    <color name="coupang_play_gradient_right">#FFDD9FFA</color>
+</resources>
