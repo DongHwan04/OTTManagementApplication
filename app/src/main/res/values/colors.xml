@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ==========================================
+         1. Base & Background Colors (배경 및 기본 색상)
+         ========================================== -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="bg_dark_gray">#FF222222</color>
+
+    <!-- ==========================================
+         2. Text Colors (텍스트 폰트 색상)
+         ========================================== -->
+    <color name="text_primary">#FF202020</color>
+    <color name="text_secondary">#FF9A9A9A</color>
+    <color name="text_warning">#FFE24545</color>
+
+    <!-- ==========================================
+         3. Brand Solid Colors (구독 서비스 단일 포인트 색상)
+         - 규칙: 브랜드명_theme (모두 소문자로 통일)
+         ========================================== -->
+    <color name="netflix_theme">#FFD33E3E</color>
+    <color name="disney_theme">#FF4CC8B0</color>
+    <color name="coupang_play_theme">#FF5195EF</color>
+    <color name="tving_theme">#FFF13F42</color>
+    <color name="laftel_theme">#FF9768EA</color>
+    <color name="wave_theme">#FF2561E5</color>
+    <color name="watcha_theme">#FFDF416B</color>
+    <color name="melon_theme">#FF57D447</color>
+    <color name="genie_theme">#FFB8E0FF</color>
+    <color name="flo_theme">#FF4948EB</color>
+    <color name="youtube_music_theme">#FFD46B6B</color>
+    <color name="spotify_theme">#FF4A9540</color>
+    <color name="bugs_theme">#FFF48245</color>
+    <color name="youtube_theme">#FFD52A2D</color>
+
+    <!-- ==========================================
+         4. Brand Gradient Colors (구독 서비스 그라데이션 시작/끝 색상)
+         - 규칙: 브랜드명_gradient_start / 브랜드명_gradient_end
+         ========================================== -->
+    <!-- Tving -->
+    <color name="Tving_gradient_start">#FFE92B41</color>
+    <color name="Tving_gradient_end">#FF88DDFF</color>
+
+    <!-- coupang play -->
+    <color name="coupang_play_gradient_start">#FF54D7F1</color>
+    <color name="coupang_play_gradient_end">#FFDD9FFA</color>
+
+    <!-- wave -->
+    <color name="wave_gradient_start">#FF2072FF</color>
+    <color name="wave_gradient_end">#FFAEDFFF</color>
+
+    <!-- watcha -->
+    <color name="watcha_gradient_start">#FFFF0055</color>
+    <color name="watcha_gradient_end">#FF020202</color>
+
+    <!-- Laftel -->
+    <color name="laftel_gradient_start">#FFA05DC6</color>
+    <color name="laftel_gradient_end">#FFA098C7</color>
+
+    <!-- Netflix -->
+    <color name="netflix_gradient_start">#FFE83131</color>
+    <color name="netflix_gradient_end">#FF821B1B</color>
+
+    <!-- youtube  -->
+    <color name="youtube_gradient_start">#FFC29292</color>
+    <color name="youtube_gradient_end">#FFE83131</color>
+
+    <!-- Disney plus  -->
+    <color name="disney_gradient_start">#FF379381</color>
+    <color name="disney_gradient_end">#FF1C3063</color>
+
+    <!-- Melon  -->
+    <color name="melon_gradient_start">#FF46E831</color>
+    <color name="melon_gradient_end">#FFFFFFFF</color>
+
+    <!-- Genie  -->
+    <color name="genie_gradient_start">#FFC7CDDD</color>
+    <color name="genie_gradient_end">#FF0096FF</color>
+
+    <!-- Flo  -->
+    <color name="flo_gradient_start">#FF3F3FF9</color>
+    <color name="flo_gradient_end">#FFBBABE9</color>
+
+    <!-- Bugs  -->
+    <color name="bugs_gradient_start">#FFCC35FF</color>
+    <color name="bugs_gradient_end">#FFEF755F</color>
+
+    <!-- Youtube Music  -->
+    <color name="youtube_music_gradient_start">#FFE83131</color>
+    <color name="youtube_music_gradient_end">#FFC29292</color>
+
+    <!-- Spotify  -->
+    <color name="spotify_gradient_start">#FF35FF4C</color>
+    <color name="spotify_gradient_end">#FF3C513D</color>
+
+
+
+    <!-- ==========================================
+         5. UI Text Gradient Colors (총 금액, 총 효율 텍스트 그라데이션용)
+         ========================================== -->
+    <!-- KRW  -->
+    <color name="krw_gradient_start">#FFBB79D9</color>
+    <color name="krw_gradient_end">#FFC99889</color>
+
+    <!-- KRW / h  -->
+    <color name="eff_gradient_start">#FF38DA50</color>
+    <color name="eff_gradient_end">#FF81B4BF</color>
+
+
+    <!-- ==========================================
+         6. 기타
+         ========================================== -->
+    <color name="pages_gray">#FF606060</color>
+    <color name="current_page">#FF90CBC0</color>
+
+    <color name="filter_button">#FF616161</color>
+    
+    <color name="add_button">#FFA7A7A7</color>
+
+    <color name="month_block">#FF2B3367</color>
+    <color name="year_block">#FF684884</color>
+
+    <color name="point_time">#FF89D472</color>
+
+
+
+</resources>
