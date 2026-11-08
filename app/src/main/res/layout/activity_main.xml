@@ -7,62 +7,28 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/top_menu"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/nav_host_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="0dp"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/bottom_nav_graph"
+        tools:ignore="MissingConstraints" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:menu="@menu/bottom_nav_menu"
+        app:labelVisibilityMode="unlabeled"
+        android:background="@color/white"
+        app:itemBackground="@drawable/selector_bottom_nav"
+        app:itemActiveIndicatorStyle="@color/white"/>
 
-        <ImageButton
-            android:id="@+id/calender_button"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/top_menu_title"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:paddingVertical="10dp"
-            android:text="구독 관리"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageButton
-            android:id="@+id/alarm_button"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/top_menu">
-        <ImageButton
-            android:layout_width="168dp"
-            android:layout_height="48dp"
-            android:layout_marginStart="16dp"
-            />
-        <ImageButton
-            android:layout_width="168dp"
-            android:layout_height="48dp"
-            android:layout_marginEnd="16dp"
-            />
-    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

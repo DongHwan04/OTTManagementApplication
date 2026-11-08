@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bottom_nav_graph"
+    app:startDestination="@id/main_bottom_nav">
+
+    <fragment
+        android:id="@+id/main_bottom_nav"
+        android:name="com.example.ottmanagementapplication.MainFragment"
+        android:label="main_bottom_nav"/>
+    <fragment
+        android:id="@+id/profile_bottom_nav"
+        android:name="com.example.ottmanagementapplication.ProfileFragment"
+        android:label="profile_bottom_nav"/>
+    <fragment
+        android:id="@+id/community_bottom_nav"
+        android:name="com.example.ottmanagementapplication.CommunityFragment"
+        android:label="community_bottom_nav"/>
+    <fragment
+        android:id="@+id/setting_bottom_nav"
+        android:name="com.example.ottmanagementapplication.SettingFragment"
+        android:label="setting_bottom_nav"/>
+
+</navigation>
