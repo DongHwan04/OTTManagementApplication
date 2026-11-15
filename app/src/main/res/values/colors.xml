@@ -23,7 +23,7 @@
     <color name="coupang_play_theme">#FF5195EF</color>
     <color name="tving_theme">#FFF13F42</color>
     <color name="laftel_theme">#FF9768EA</color>
-    <color name="wave_theme">#FF2561E5</color>
+    <color name="wavve_theme">#FF2561E5</color>
     <color name="watcha_theme">#FFDF416B</color>
     <color name="melon_theme">#FF57D447</color>
     <color name="genie_theme">#FFB8E0FF</color>
@@ -45,9 +45,9 @@
     <color name="coupang_play_gradient_start">#FF54D7F1</color>
     <color name="coupang_play_gradient_end">#FFDD9FFA</color>
 
-    <!-- wave -->
-    <color name="wave_gradient_start">#FF2072FF</color>
-    <color name="wave_gradient_end">#FFAEDFFF</color>
+    <!-- wavve -->
+    <color name="wavve_gradient_start">#FF2072FF</color>
+    <color name="wavve_gradient_end">#FFAEDFFF</color>
 
     <!-- watcha -->
     <color name="watcha_gradient_start">#FFFF0055</color>
