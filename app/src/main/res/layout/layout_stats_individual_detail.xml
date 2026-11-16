@@ -5,61 +5,192 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardBackgroundColor="#F8F9FA"
+    android:layout_marginHorizontal="8dp"
+    app:cardBackgroundColor="@color/white"
     app:cardCornerRadius="16dp"
     app:cardElevation="0dp"
     app:strokeColor="#E5E8EB"
-    app:strokeWidth="1dp">
+    app:strokeWidth="2dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="16dp">
 
-        <TextView
-            android:id="@+id/tv_detail_service_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#191F28"
-            android:textSize="18sp"
-            android:textStyle="bold"
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/view_iv_detail_service_icon"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="0dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="YouTube Premium" />
+            app:strokeWidth="1dp">
 
-        <ImageButton
-            android:id="@+id/btn_close_detail"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:contentDescription="개별 통계 닫기"
-            android:src="@android:drawable/ic_menu_close_clear_cancel"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <ImageView
+                android:id="@+id/iv_detail_service_icon"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/ic_youtube" />
 
-        <TextView
-            android:id="@+id/tv_detail_monthly_fee"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:textColor="#3182F6"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_detail_service_name"
-            tools:text="월 14,900원" />
+        </com.google.android.material.card.MaterialCardView>
 
         <TextView
-            android:id="@+id/tv_detail_usage_summary"
+            android:id="@+id/tv_detail_service_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:textColor="#4E5968"
-            android:textSize="14sp"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="8dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/ll_detail_metrics"
+            app:layout_constraintStart_toEndOf="@id/view_iv_detail_service_icon"
+            app:layout_constraintTop_toTopOf="@id/view_iv_detail_service_icon"
+            tools:text="YouTube Premium" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/tv_detail_service_name"
+            app:layout_constraintBottom_toBottomOf="@id/view_iv_detail_service_icon"
+            android:orientation="horizontal"
+            android:paddingVertical="8dp">
+            <TextView
+                android:id="@+id/tv_monthly_text"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:text="월"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:textSize="11sp"
+                android:paddingHorizontal="1dp"
+                android:textColor="@color/white"
+                android:background="@drawable/bg_rounded_text"
+                android:backgroundTint="@color/month_block"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="28일"
+                android:textSize="13sp"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_detail_metrics"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/view_iv_detail_service_icon">
+
+            <TextView
+                android:id="@+id/tv_text_detail_monthly_efficient"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="KRW / h"
+                android:textColor="#3182F6"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_value_detail_monthly_efficient"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginTop="-8dp"
+                tools:text="4,900" />
+
+            <TextView
+                android:id="@+id/tv_text_detail_monthly_fee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="KRW"
+                android:textColor="#3182F6"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_value_detail_monthly_fee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-8dp"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:text="14,900" />
+
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier_detail_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="view_iv_detail_service_icon,ll_detail_metrics" />
+
+        <!-- 구분선 -->
+        <View
+            android:id="@+id/divider_detail_stats"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="16dp"
+            android:background="#E5E8EB"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_detail_monthly_fee"
-            tools:text="이번 달 시청 24시간 · 시간당 약 620원" />
+            app:layout_constraintTop_toBottomOf="@id/barrier_detail_header" />
+
+        <!-- 4. 개별 통계 블록 섹션 제목 -->
+        <TextView
+            android:id="@+id/tv_detail_stats_section_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:text="이용 통계"
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider_detail_stats" />
+
+        <!-- 5. 통계 시각화 영역 블록 (추후 차트/그래프 삽입 위치) -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_detail_stats_chart"
+            android:layout_width="0dp"
+            android:layout_height="160dp"
+            android:layout_marginTop="10dp"
+            app:cardBackgroundColor="#F8F9FA"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_detail_stats_section_title"
+            app:strokeWidth="0dp">
+
+            <FrameLayout
+                android:id="@+id/container_detail_stats_chart"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/tv_detail_chart_placeholder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:text="개별 서비스 통계 영역"
+                    android:textColor="#8B95A1"
+                    android:textSize="13sp" />
+
+            </FrameLayout>
+        </com.google.android.material.card.MaterialCardView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>

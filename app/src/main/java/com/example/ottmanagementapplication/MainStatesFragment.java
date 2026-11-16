@@ -1,16 +1,23 @@
 package com.example.ottmanagementapplication;
 
+import android.graphics.Color;
+import android.graphics.LinearGradient;
+import android.graphics.Shader;
 import android.os.Bundle;
 
+import androidx.annotation.ColorRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.text.TextPaint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -80,7 +87,7 @@ public class MainStatesFragment extends Fragment {
 
         // UI 확인용 더미 아이콘 리스트 (drawable에 있는 실제 아이콘 이름으로 변경)
         List<Integer> dummyIcons = Arrays.asList(
-                R.drawable.ic_youtube,
+                R.drawable.ic_watcha,
                 R.drawable.ic_coupangplay,
                 R.drawable.ic_disneyplus,
                 R.drawable.ic_genie,
@@ -88,17 +95,22 @@ public class MainStatesFragment extends Fragment {
         );
 
         View cardIndividualStats = view.findViewById(R.id.include_individual_stats);
+        ImageView ivDetailIcon = cardIndividualStats.findViewById(R.id.iv_detail_service_icon);
         TextView tvServiceName = cardIndividualStats.findViewById(R.id.tv_detail_service_name);
-        TextView tvMonthlyFee = cardIndividualStats.findViewById(R.id.tv_detail_monthly_fee);
-        ImageButton btnCloseDetail = cardIndividualStats.findViewById(R.id.btn_close_detail);
+        TextView tvEfficientValue = cardIndividualStats.findViewById(R.id.tv_value_detail_monthly_efficient);
+        TextView tvFeeValue = cardIndividualStats.findViewById(R.id.tv_value_detail_monthly_fee);
+        TextView tvEfficientUnit = cardIndividualStats.findViewById(R.id.tv_text_detail_monthly_efficient);
+        TextView tvFeeUnit = cardIndividualStats.findViewById(R.id.tv_text_detail_monthly_fee);
+
+        applyTextGradient(tvEfficientUnit, R.color.eff_gradient_start, R.color.eff_gradient_end);
+        applyTextGradient(tvFeeUnit, R.color.krw_gradient_start, R.color.krw_gradient_end);
+
 
         List<String> dummyNames = Arrays.asList("왓챠", "쿠팡플레이", "디즈니+", "지니뮤직", "라프텔");
-        List<String> dummyFees = Arrays.asList("월 7,900원", "월 7,890원", "월 9,900원", "월 8,400원", "월 14,900원");
+        List<String> dummyEfficients = Arrays.asList("7,900", "7,890", "9,900", "8,400", "14,900");
+        List<String> dummyFees = Arrays.asList("7,900", "7,890", "9,900", "8,400", "14,900");
 
-        btnCloseDetail.setOnClickListener(v -> {
-            cardIndividualStats.setVisibility(View.GONE);
-            selectedPosition = -1;
-        });
+
 
         SubscriptionIconAdapter adapter = new SubscriptionIconAdapter(dummyIcons, position -> {
             if (selectedPosition == position && cardIndividualStats.getVisibility() == View.VISIBLE) {
@@ -107,8 +119,11 @@ public class MainStatesFragment extends Fragment {
                 selectedPosition = -1;
             } else {
                 // 다른 아이콘 선택 시 데이터 갱신 후 펼치기
+                ivDetailIcon.setImageResource(dummyIcons.get(position));
                 tvServiceName.setText(dummyNames.get(position));
-                tvMonthlyFee.setText(dummyFees.get(position));
+                tvEfficientValue.setText(dummyEfficients.get(position));
+                tvFeeValue.setText(dummyFees.get(position));
+
                 cardIndividualStats.setVisibility(View.VISIBLE);
                 selectedPosition = position;
             }
@@ -117,13 +132,26 @@ public class MainStatesFragment extends Fragment {
         });
         rvIcons.setAdapter(adapter);
 
-        btnCloseDetail.setOnClickListener(v -> {
-            cardIndividualStats.setVisibility(View.GONE);
-            selectedPosition = -1;
-            adapter.setSelectedPosition(-1);
 
+    }
+    private void applyTextGradient(TextView textView, @ColorRes int startColorRes, @ColorRes int endColorRes) {
+        TextPaint paint = textView.getPaint();
+        String text = textView.getText().toString();
+        float width = paint.measureText(text);
 
-        });
+        // R.color 리소스 ID를 실제 색상 정수값으로 변환
+        int startColor = ContextCompat.getColor(textView.getContext(), startColorRes);
+        int endColor = ContextCompat.getColor(textView.getContext(), endColorRes);
+
+        Shader textShader = new LinearGradient(
+                0f, 0f, width, 0f,
+                new int[]{startColor, endColor},
+                null,
+                Shader.TileMode.CLAMP
+        );
+
+        paint.setShader(textShader);
+        textView.invalidate();
     }
 
 }
