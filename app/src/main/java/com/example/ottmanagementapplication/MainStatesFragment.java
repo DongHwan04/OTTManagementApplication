@@ -93,6 +93,9 @@ public class MainStatesFragment extends Fragment {
                 R.drawable.ic_genie,
                 R.drawable.ic_laftel
         );
+        View cardTotalStats = view.findViewById(R.id.include_total_stats);
+        TextView tvTotalEfficientUnit = cardTotalStats.findViewById(R.id.tv_stats_total_efficient_KRW_h);
+        TextView tvTotalFeeUnit = cardTotalStats.findViewById(R.id.tv_stats_total_amount_KRW);
 
         View cardIndividualStats = view.findViewById(R.id.include_individual_stats);
         ImageView ivDetailIcon = cardIndividualStats.findViewById(R.id.iv_detail_service_icon);
@@ -104,6 +107,8 @@ public class MainStatesFragment extends Fragment {
 
         applyTextGradient(tvEfficientUnit, R.color.eff_gradient_start, R.color.eff_gradient_end);
         applyTextGradient(tvFeeUnit, R.color.krw_gradient_start, R.color.krw_gradient_end);
+        applyTextGradient(tvTotalEfficientUnit, R.color.eff_gradient_start, R.color.eff_gradient_end);
+        applyTextGradient(tvTotalFeeUnit, R.color.krw_gradient_start, R.color.krw_gradient_end);
 
 
         List<String> dummyNames = Arrays.asList("왓챠", "쿠팡플레이", "디즈니+", "지니뮤직", "라프텔");
