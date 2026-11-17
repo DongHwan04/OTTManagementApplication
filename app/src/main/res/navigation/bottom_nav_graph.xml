@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/bottom_nav_graph"
     app:startDestination="@id/main_bottom_nav">
 
     <fragment
         android:id="@+id/main_bottom_nav"
         android:name="com.example.ottmanagementapplication.MainFragment"
-        android:label="main_bottom_nav"/>
+        android:label="main_bottom_nav">
+        <action
+            android:id="@+id/action_mainFragment_to_subscriptionAddFragment"
+            app:destination="@id/subscriptionAddFragment"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/stay"
+            app:popEnterAnim="@anim/stay"
+            app:popExitAnim="@anim/slide_out_bottom"/>
+    </fragment>
     <fragment
         android:id="@+id/profile_bottom_nav"
         android:name="com.example.ottmanagementapplication.ProfileFragment"
@@ -20,5 +29,11 @@
         android:id="@+id/setting_bottom_nav"
         android:name="com.example.ottmanagementapplication.SettingFragment"
         android:label="setting_bottom_nav"/>
+    <fragment
+        android:id="@+id/subscriptionAddFragment"
+        android:name="com.example.ottmanagementapplication.SubscriptionAddFragment"
+        android:label="구독 등록"
+        tools:layout="@layout/fragment_subscription_add" />
+
 
 </navigation>

@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nsv_subscription_form"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toTopOf="@id/ll_bottom_buttons"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="20dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="24dp">
+
+        <!-- 1. [아이콘 설정 버튼 및 선택한 아이콘 표시] -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_add_icon_selector"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            app:cardBackgroundColor="#000000"
+            app:cardCornerRadius="18dp"
+            app:cardElevation="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="#E5E8EB"
+            app:strokeWidth="1dp">
+
+            <ImageView
+                android:id="@+id/iv_selected_service_icon"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="구독 서비스 아이콘 선택"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/ic_youtube" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 2. [카테고리 선택 버튼] -->
+        <LinearLayout
+            android:id="@+id/ll_category_selector"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/bg_rounded_text"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="12dp"
+            app:backgroundTint="#EFEFEF"
+            app:layout_constraintStart_toEndOf="@id/card_add_icon_selector"
+            app:layout_constraintTop_toTopOf="@id/card_add_icon_selector">
+
+            <TextView
+                android:id="@+id/tv_selected_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:includeFontPadding="false"
+                android:text="카테고리"
+                android:textColor="#6B7684"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="6dp"
+                android:contentDescription="카테고리 태그 아이콘"
+                app:srcCompat="@drawable/ic_tag"
+                app:tint="#6B7684" />
+
+        </LinearLayout>
+
+        <!-- 3. [제목 설정 입력창 + 하단 밑줄] -->
+        <EditText
+            android:id="@+id/et_subscription_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp"
+            android:background="@null"
+            android:hint="서비스 이름"
+            android:imeOptions="actionNext"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:maxLines="1"
+            android:paddingHorizontal="4dp"
+            android:textColor="#191F28"
+            android:textColorHint="#8B95A1"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/divider_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/ll_category_selector"
+            tools:text="넷플릭스" />
+
+        <View
+            android:id="@+id/divider_title"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="#8B95A1"
+            app:layout_constraintBottom_toBottomOf="@id/card_add_icon_selector"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/ll_category_selector" />
+
+        <!-- 4. [가격 설정 행] -->
+        <ImageView
+            android:id="@+id/iv_price_icon"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="24dp"
+            android:contentDescription="가격 아이콘"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/card_add_icon_selector"
+            app:srcCompat="@drawable/ic_cart"
+            app:tint="#6B7684" />
+
+        <EditText
+            android:id="@+id/et_subscription_price"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:background="@null"
+            android:hint="금액 입력"
+            android:imeOptions="actionNext"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:maxLines="1"
+            android:textColor="#4E5968"
+            android:textColorHint="#8B95A1"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/iv_price_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/iv_price_icon"
+            app:layout_constraintTop_toTopOf="@id/iv_price_icon"
+            tools:text="14,900" />
+
+        <View
+            android:id="@+id/divider_price"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:background="#8B95A1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_price_icon" />
+
+        <!-- 5. [월간 버튼] [연간 버튼] -->
+        <TextView
+            android:id="@+id/tv_cycle_monthly"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_pill_button"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:paddingHorizontal="20dp"
+            android:text="월간"
+            android:textColor="@color/white"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            app:backgroundTint="#232A5C"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider_price" />
+
+        <TextView
+            android:id="@+id/tv_cycle_yearly"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_marginStart="12dp"
+            android:background="@drawable/bg_pill_button"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:paddingHorizontal="20dp"
+            android:text="연간"
+            android:textColor="@color/white"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            app:backgroundTint="#BDBDBD"
+            app:layout_constraintBottom_toBottomOf="@id/tv_cycle_monthly"
+            app:layout_constraintStart_toEndOf="@id/tv_cycle_monthly"
+            app:layout_constraintTop_toTopOf="@id/tv_cycle_monthly" />
+
+        <!-- 6. [지출 일자 선택 행] -->
+        <ImageView
+            android:id="@+id/iv_date_icon"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="20dp"
+            android:contentDescription="지출 일자 아이콘"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_cycle_monthly"
+            app:srcCompat="@drawable/ic_calendar"
+            app:tint="#6B7684" />
+
+        <TextView
+            android:id="@+id/tv_billing_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:hint="지출 일자 선택"
+            android:includeFontPadding="false"
+            android:paddingVertical="4dp"
+            android:textColor="#4E5968"
+            android:textColorHint="#8B95A1"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/iv_date_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/iv_date_icon"
+            app:layout_constraintTop_toTopOf="@id/iv_date_icon"
+            tools:text="매월 28일" />
+
+        <View
+            android:id="@+id/divider_date"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:background="#8B95A1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_date_icon" />
+
+        <!-- 7. [메모 입력 행] -->
+        <ImageView
+            android:id="@+id/iv_memo_icon"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="18dp"
+            android:contentDescription="메모 아이콘"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider_date"
+            app:srcCompat="@drawable/ic_memo"
+            app:tint="#6B7684" />
+
+        <EditText
+            android:id="@+id/et_subscription_memo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:background="@null"
+            android:hint="메모"
+            android:imeOptions="actionDone"
+            android:importantForAutofill="no"
+            android:inputType="textMultiLine"
+            android:maxLines="3"
+            android:textColor="#4E5968"
+            android:textColorHint="#8B95A1"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/iv_memo_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/iv_memo_icon"
+            app:layout_constraintTop_toTopOf="@id/iv_memo_icon" />
+
+        <View
+            android:id="@+id/divider_memo"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:background="#8B95A1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_memo_icon" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <LinearLayout
+        android:id="@+id/ll_bottom_buttons"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <!-- 취소 버튼 (보조 액션) -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_cancel_subscription"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_marginEnd="6dp"
+            android:layout_weight="1"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="취소"
+            android:textColor="#4E5968"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:backgroundTint="#EFEFEF"
+            app:cornerRadius="14dp"
+            app:elevation="0dp" />
+
+        <!-- 등록 버튼 (주 액션) -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_add_subscription"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_marginStart="6dp"
+            android:layout_weight="1"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="등록하기"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:backgroundTint="#42485B"
+            app:cornerRadius="14dp"
+            app:elevation="0dp" />
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
