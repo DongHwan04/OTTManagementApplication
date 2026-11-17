@@ -1,64 +1,106 @@
 package com.example.ottmanagementapplication;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link MainFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.fragment.NavHostFragment;
+
 public class MainFragment extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private View btnVideo;
+    private View btnMusic;
 
     public MainFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment MainFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static MainFragment newInstance(String param1, String param2) {
-        MainFragment fragment = new MainFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_main, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        View fabAdd = view.findViewById(R.id.fab_open_subscription_add);
+        if (fabAdd != null) {
+            fabAdd.setOnClickListener(v -> {
+                NavHostFragment.findNavController(MainFragment.this)
+                        .navigate(R.id.action_mainFragment_to_subscriptionAddFragment);
+            });
+        }
+
+        // 부모 XML의 FragmentContainerView에 자식 프래그먼트(MainStatesFragment)를 조립
+        if (savedInstanceState == null) {
+            getChildFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.home_child_fragment_container, new MainStatesFragment())
+                    .commit();
+        }
+        btnVideo = view.findViewById(R.id.button_transition_video); // 비디오 아이콘
+        btnMusic = view.findViewById(R.id.button_transition_music); // 뮤직 아이콘
+
+        if (btnVideo != null) {
+            btnVideo.setOnClickListener(v -> toggleChildFragment(MainVideoFragment.class));
+        }
+
+        if (btnMusic != null) {
+            btnMusic.setOnClickListener(v -> toggleChildFragment(MainMusicFragment.class));
+        }
+
+    }
+    private void toggleChildFragment(@NonNull Class<? extends Fragment> targetClass) {
+        Fragment currentFragment = getChildFragmentManager()
+                .findFragmentById(R.id.home_child_fragment_container);
+
+        Fragment nextFragment;
+        boolean isReturningToStates = (currentFragment != null && currentFragment.getClass().equals(targetClass));
+
+        if (isReturningToStates) {
+            // 이미 해당 화면에 있는 상태에서 버튼을 다시 누름 -> 전체 통계 화면으로 복귀
+            nextFragment = new MainStatesFragment();
+        } else {
+            // 다른 화면에서 버튼을 누름 -> 대상 프래그먼트 생성
+            try {
+                nextFragment = targetClass.newInstance();
+            } catch (IllegalAccessException | java.lang.InstantiationException e) {
+                e.printStackTrace();
+                return;
+            }
+        }
+
+        getChildFragmentManager()
+                .beginTransaction()
+                .replace(R.id.home_child_fragment_container, nextFragment)
+                .commit();
+
+        // 버튼 선택(활성) 시각 상태 동기화
+        updateNavButtonState(isReturningToStates ? MainStatesFragment.class : targetClass, isReturningToStates);
+    }
+
+    private void updateNavButtonState(@NonNull Class<? extends Fragment> activeClass, boolean isreturn) {
+        if (isreturn) {
+            btnVideo.setAlpha(1.0f);
+            btnMusic.setAlpha(1.0f);
+            return;
+        }
+        if (btnVideo != null) {
+            boolean isVideoActive = activeClass.equals(MainVideoFragment.class);
+            btnVideo.setSelected(isVideoActive);
+            btnVideo.setAlpha(isVideoActive ? 1.0f : 0.5f);
+        }
+        if (btnMusic != null) {
+            boolean isMusicActive = activeClass.equals(MainMusicFragment.class);
+            btnMusic.setSelected(isMusicActive);
+            btnMusic.setAlpha(isMusicActive ? 1.0f : 0.5f);
+        }
+
+
     }
 }
