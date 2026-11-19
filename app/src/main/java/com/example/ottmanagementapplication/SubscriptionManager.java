@@ -226,7 +226,7 @@ public class SubscriptionManager {
         return id;
     }
 
-    // 변경된 구독 목록 저장
+    // 변경된 구독 목록 저장.
     private void save(JSONArray items) {
         prefs.edit().putString(KEY, items.toString()).apply();
     }
