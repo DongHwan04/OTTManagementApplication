@@ -66,6 +66,9 @@ public class MainVideoFragment extends Fragment {
             llActiveIcons.addView(iconItem);
         }
 
+        //유저 아이디 입력
+        int userId = 1;
+
         //1. recent adapter연결
         RecyclerView rvRecentVideos = view.findViewById(R.id.rv_recent_videos);
         LinearLayoutManager recentLayoutManager = new LinearLayoutManager(
@@ -82,7 +85,7 @@ public class MainVideoFragment extends Fragment {
                 requireContext(), LinearLayoutManager.HORIZONTAL, false
         );
         rvRecommendVideos.setLayoutManager(recommendLayoutManager);
-        List<Movie> recommendMovies = MovieList.getMovies();
+        List<Movie> recommendMovies = new MovieRecommender(userId).recommend();
         VideoRecommendAdapter videoRecommendAdapter = new VideoRecommendAdapter(recommendMovies);
         rvRecommendVideos.setAdapter(videoRecommendAdapter);
 

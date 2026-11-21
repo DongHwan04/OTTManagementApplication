@@ -21,4 +21,17 @@ public class MovieList {
 
         return movies;
     }
+
+    public static Movie getMovieById(int contentId) {
+        List<Movie> movies = getMovies();
+        if (movies == null) {
+            return null;
+        }
+        for (Movie movie : movies) {
+            if (movie.getContentId() == contentId) {
+                return movie;
+            }
+        }
+        return null;
+    }
 }
