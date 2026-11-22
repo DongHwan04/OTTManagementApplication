@@ -12,8 +12,8 @@ public class MovieRecommender {
     Map<Movie, Float> watchedMovies;
     List<Movie> movies;
     public MovieRecommender(User user) {
-        this.watchedMovies = UserList.getWatchedMovies(user.getUserId());
-        this.movies = MovieList.getMovies();
+        //this.watchedMovies = UserList.getWatchedMovies(user.getUserId());
+        //this.movies = MovieList.getMovies();
         checkPreference();
     }
 

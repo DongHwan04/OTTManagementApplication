@@ -16,15 +16,73 @@
             app:exitAnim="@anim/stay"
             app:popEnterAnim="@anim/stay"
             app:popExitAnim="@anim/slide_out_bottom"/>
+
+        <action
+            android:id="@+id/action_main_to_notification"
+            app:destination="@id/notificationFragment"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/stay"
+            app:popEnterAnim="@anim/stay"
+            app:popExitAnim="@anim/slide_out_bottom"
+            />
+        <!-- main_bottom_nav 및 community_bottom_nav 내부에 추가 -->
+        <action
+            android:id="@+id/action_to_calendar"
+            app:destination="@id/calendarFragment"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/stay"
+            app:popEnterAnim="@anim/stay"
+            app:popExitAnim="@anim/slide_out_bottom" />
     </fragment>
+
     <fragment
         android:id="@+id/profile_bottom_nav"
         android:name="com.example.ottmanagementapplication.ProfileFragment"
-        android:label="profile_bottom_nav"/>
+        android:label="profile_bottom_nav">
+        <action
+            android:id="@+id/action_to_calendar"
+            app:destination="@id/calendarFragment"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/stay"
+            app:popEnterAnim="@anim/stay"
+            app:popExitAnim="@anim/slide_out_bottom" />
+
+        <action
+            android:id="@+id/action_profile_to_notification"
+            app:destination="@id/notificationFragment"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/stay"
+            app:popEnterAnim="@anim/stay"
+            app:popExitAnim="@anim/slide_out_bottom" />
+
+        <action
+            android:id="@+id/action_profile_to_subscription_add"
+            app:destination="@id/subscriptionAddFragment"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/stay"
+            app:popEnterAnim="@anim/stay"
+            app:popExitAnim="@anim/slide_out_bottom" />
+    </fragment>
     <fragment
         android:id="@+id/community_bottom_nav"
         android:name="com.example.ottmanagementapplication.CommunityFragment"
-        android:label="community_bottom_nav"/>
+        android:label="community_bottom_nav">
+        <action
+            android:id="@+id/action_community_to_notification"
+            app:destination="@id/notificationFragment"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/stay"
+            app:popEnterAnim="@anim/stay"
+            app:popExitAnim="@anim/slide_out_bottom" />
+        <!-- main_bottom_nav 및 community_bottom_nav 내부에 추가 -->
+        <action
+            android:id="@+id/action_to_calendar"
+            app:destination="@id/calendarFragment"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/stay"
+            app:popEnterAnim="@anim/stay"
+            app:popExitAnim="@anim/slide_out_bottom" />
+    </fragment>
     <fragment
         android:id="@+id/setting_bottom_nav"
         android:name="com.example.ottmanagementapplication.SettingFragment"
@@ -34,6 +92,33 @@
         android:name="com.example.ottmanagementapplication.SubscriptionAddFragment"
         android:label="구독 등록"
         tools:layout="@layout/fragment_subscription_add" />
+    <fragment
+        android:id="@+id/notificationFragment"
+        android:name="com.example.ottmanagementapplication.NotificationFragment"
+        android:label="NotificationFragment"
+        tools:layout="@layout/fragment_notification" />
+    <fragment
+        android:id="@+id/calendarFragment"
+        android:name="com.example.ottmanagementapplication.CalendarFragment"
+        android:label="CalendarFragment"
+        tools:layout="@layout/fragment_calendar">
+
+        <action
+            android:id="@+id/action_calendar_to_notification"
+            app:destination="@id/notificationFragment"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/stay"
+            app:popEnterAnim="@anim/stay"
+            app:popExitAnim="@anim/slide_out_bottom" />
+
+        <action
+            android:id="@+id/action_calendar_to_subscription_add"
+            app:destination="@id/subscriptionAddFragment"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/stay"
+            app:popEnterAnim="@anim/stay"
+            app:popExitAnim="@anim/slide_out_bottom" />
+    </fragment>
 
 
 </navigation>
