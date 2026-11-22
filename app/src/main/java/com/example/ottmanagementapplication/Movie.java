@@ -8,6 +8,7 @@ public class Movie {
     private String genre;
     private String description;
     private float popularity;
+    private int imageResId;
 
 
     //생성자
@@ -16,13 +17,15 @@ public class Movie {
                  int platformId,
                  String genre,
                  String description,
-                 float popularity) {
+                 float popularity,
+                 int imageResId) {
         this.contentId = contentId;
         this.title = title;
         this.platformId = platformId;
         this.genre = genre;
         this.description = description;
         this.popularity = popularity;
+        this.imageResId = imageResId;
     }
 
     //getter & setter
@@ -74,6 +77,10 @@ public class Movie {
         this.contentId = contentId;
     }
 
+    public int getImageResId() {
+        return imageResId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -86,4 +93,5 @@ public class Movie {
     public int hashCode() {
         return Integer.hashCode(contentId);
     }
+
 }
