@@ -16,6 +16,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.Arrays;
 import java.util.List;
@@ -63,6 +65,39 @@ public class MainVideoFragment extends Fragment {
             ivLogo.setImageResource(iconRes);
             llActiveIcons.addView(iconItem);
         }
+
+        //유저 아이디 입력
+        int userId = 1;
+
+        //1. recent adapter연결
+        RecyclerView rvRecentVideos = view.findViewById(R.id.rv_recent_videos);
+        LinearLayoutManager recentLayoutManager = new LinearLayoutManager(
+                requireContext(), LinearLayoutManager.HORIZONTAL, false
+        );
+        rvRecentVideos.setLayoutManager(recentLayoutManager);
+        List<Movie> recentMovies = MovieList.getMovies();
+        VideoRecentAdapter videoRecentAdapter = new VideoRecentAdapter(recentMovies);
+        rvRecentVideos.setAdapter(videoRecentAdapter);
+
+        //2. recommend adapter연결
+        RecyclerView rvRecommendVideos = view.findViewById(R.id.rv_recommended_videos);
+        LinearLayoutManager recommendLayoutManager = new LinearLayoutManager(
+                requireContext(), LinearLayoutManager.HORIZONTAL, false
+        );
+        rvRecommendVideos.setLayoutManager(recommendLayoutManager);
+        List<Movie> recommendMovies = new MovieRecommender(userId).recommend();
+        VideoRecommendAdapter videoRecommendAdapter = new VideoRecommendAdapter(recommendMovies);
+        rvRecommendVideos.setAdapter(videoRecommendAdapter);
+
+        //3. communityTop adapter연결
+        RecyclerView rvCommunityTop = view.findViewById(R.id.rv_community_top);
+        LinearLayoutManager communityTopLayoutManager = new LinearLayoutManager(
+                requireContext(), LinearLayoutManager.HORIZONTAL, false
+        );
+        rvCommunityTop.setLayoutManager(communityTopLayoutManager);
+        List<Movie> topMovies = MovieList.getMovies();
+        VideoCommunityTopAdapter communityTopAdapter = new VideoCommunityTopAdapter(topMovies);
+        rvCommunityTop.setAdapter(communityTopAdapter);
     }
 
     private void applyTextGradient(TextView textView, @ColorRes int startColorRes, @ColorRes int endColorRes) {
