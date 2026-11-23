@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -28,19 +27,6 @@ public class MainFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-        View btnNotification = view.findViewById(R.id.alarm_button); // layout_top_tool_header.xml의 종 아이콘 ID로 맞춰주세요
-        if (btnNotification != null) {
-            btnNotification.setOnClickListener(v ->
-                    NavHostFragment.findNavController(this)
-                            .navigate(R.id.action_main_to_notification)
-            );
-        }
-
-        ImageButton btnCalendar = view.findViewById(R.id.calender_button);
-        btnCalendar.setOnClickListener(v ->
-                NavHostFragment.findNavController(this).navigate(R.id.action_to_calendar)
-        );
 
         View fabAdd = view.findViewById(R.id.fab_open_subscription_add);
         if (fabAdd != null) {
