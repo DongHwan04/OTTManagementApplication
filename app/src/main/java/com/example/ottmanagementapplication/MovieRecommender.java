@@ -11,6 +11,7 @@ public class MovieRecommender {
     Map <String, Float> ratings = new HashMap<>(); //유저별로 장르와 총평점
     Map<Movie, Float> watchedMovies;
     List<Movie> movies;
+
     public MovieRecommender(int userId) {
         this.watchedMovies = UserMap.getUserById(userId).getWatchedMovies();
         this.movies = MovieList.getMovies();

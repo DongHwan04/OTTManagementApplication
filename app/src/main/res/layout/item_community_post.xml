@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    app:cardBackgroundColor="#222222"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="0dp"
+    app:strokeWidth="0dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="14dp"
+        android:paddingVertical="12dp">
+
+        <!-- 좌측: 원형 프로필 아바타 + 우측 하단 서비스 아이콘 뱃지 오버레이 -->
+        <FrameLayout
+            android:id="@+id/layout_post_avatar_group"
+            android:layout_width="52dp"
+            android:layout_height="48dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/iv_post_user_avatar"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_gravity="top|start"
+                android:contentDescription="작성자 프로필"
+                android:src="@drawable/ic_person_avatar" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_gravity="bottom|end"
+                app:cardBackgroundColor="#000000"
+                app:cardCornerRadius="6dp"
+                app:cardElevation="2dp"
+                app:strokeColor="#BDBDBD"
+                app:strokeWidth="1dp">
+
+                <ImageView
+                    android:id="@+id/iv_post_service_icon"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="구독 서비스 아이콘"
+                    android:scaleType="centerCrop"
+                    tools:src="@drawable/ic_youtube" />
+            </com.google.android.material.card.MaterialCardView>
+        </FrameLayout>
+
+        <!-- 우측 상단: 게시글 말머리 뱃지 (추천/후기/팁) -->
+        <TextView
+            android:id="@+id/tv_post_type_badge"
+            android:layout_width="wrap_content"
+            android:layout_height="22dp"
+            android:background="@drawable/bg_post_badge"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:minWidth="46dp"
+            android:paddingHorizontal="10dp"
+            android:textColor="@color/white"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="추천" />
+
+        <!-- 우측 하단: 유저 코드 (#0000) -->
+        <TextView
+            android:id="@+id/tv_post_user_tag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:textColor="#8B95A1"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_post_type_badge"
+            tools:text="#0000" />
+
+        <!-- 중앙 상단: 서비스명 -->
+        <TextView
+            android:id="@+id/tv_post_service_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="8dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/tv_post_content"
+            app:layout_constraintEnd_toStartOf="@id/tv_post_type_badge"
+            app:layout_constraintStart_toEndOf="@id/layout_post_avatar_group"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="넷플릭스" />
+
+        <!-- 중앙 하단: 게시글 내용 미리보기 -->
+        <TextView
+            android:id="@+id/tv_post_content"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="8dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="#E5E8EB"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tv_post_user_tag"
+            app:layout_constraintStart_toEndOf="@id/layout_post_avatar_group"
+            app:layout_constraintTop_toBottomOf="@id/tv_post_service_name"
+            tools:text="내용" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>
