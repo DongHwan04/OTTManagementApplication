@@ -86,7 +86,22 @@
     <fragment
         android:id="@+id/setting_bottom_nav"
         android:name="com.example.ottmanagementapplication.SettingFragment"
-        android:label="setting_bottom_nav"/>
+        android:label="setting_bottom_nav">
+        <action
+            android:id="@+id/action_setting_to_notification"
+            app:destination="@id/notificationFragment"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/stay"
+            app:popEnterAnim="@anim/stay"
+            app:popExitAnim="@anim/slide_out_bottom" />
+        <action
+            android:id="@+id/action_setting_to_calendar"
+            app:destination="@id/calendarFragment"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/stay"
+            app:popEnterAnim="@anim/stay"
+            app:popExitAnim="@anim/slide_out_bottom" />
+    </fragment>
     <fragment
         android:id="@+id/subscriptionAddFragment"
         android:name="com.example.ottmanagementapplication.SubscriptionAddFragment"

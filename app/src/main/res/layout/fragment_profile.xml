@@ -452,15 +452,29 @@
             </com.google.android.material.card.MaterialCardView>
 
             <!-- 3-3. 구독 서비스별 지출 비율 목록 -->
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_profile_subscriptions"
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:nestedScrollingEnabled="false"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                tools:itemCount="4"
-                tools:listitem="@layout/item_profile_subscription" />
+                android:layout_marginTop="12dp"
+                app:cardBackgroundColor="#F9FAFB"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="0dp"
+                app:strokeColor="#E5E8EB"
+                app:strokeWidth="1.5dp">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_profile_subscriptions"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:nestedScrollingEnabled="false"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:itemCount="4"
+                    tools:listitem="@layout/item_profile_subscription">
+
+                </androidx.recyclerview.widget.RecyclerView>
+
+            </com.google.android.material.card.MaterialCardView>
+
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
