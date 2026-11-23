@@ -114,7 +114,6 @@ public class SettingFragment extends Fragment {
                 .setNegativeButton("취소", null)
                 .show();
     }
-
     private void showAlarmTimePicker() {
         new TimePickerDialog(
                 requireContext(),
